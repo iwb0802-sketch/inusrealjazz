@@ -982,7 +982,7 @@
     <div class="font-sans text-champagne/40 text-xs leading-relaxed space-y-1 mb-6">
       <p>업체명: 비엔에스뮤직(이너스뮤직)</p>
       <p>대표자: 신유진 &nbsp;|&nbsp; 사업자번호: 299-90-00178</p>
-      <p>사무실 주소: 서울 광진구 자양로 165 4층</p>
+      <p>사무실 주소: 서울특별시 송파구 삼전로 13길 28, 지하1층(잠실동, 기찬빌)</p>
       <p>TEL: <a href="tel:02-423-2772" class="hover:text-gold transition-colors duration-300">02-423-2772</a></p>
     </div>
     <p class="font-sans text-champagne/30 text-xs">&copy; 2015-2025 INUSMUSIC. All rights reserved.</p>
