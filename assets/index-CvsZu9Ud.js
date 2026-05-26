@@ -980,6 +980,7 @@
     <p class="font-serif text-champagne/40 text-sm tracking-wider uppercase mb-6">Premium Jazz Wedding Live</p>
     <div class="gold-line w-12 mx-auto mb-6"></div>
     <div class="font-sans text-champagne/40 text-xs leading-relaxed space-y-1 mb-6">
+      <p>업체명: 비엔에스뮤직(이너스뮤직)</p>
       <p>대표자: 신유진 &nbsp;|&nbsp; 사업자번호: 299-90-00178</p>
       <p>사무실 주소: 서울 광진구 자양로 165 4층</p>
       <p>TEL: <a href="tel:02-423-2772" class="hover:text-gold transition-colors duration-300">02-423-2772</a></p>
