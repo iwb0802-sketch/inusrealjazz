@@ -148,6 +148,7 @@ export default function Home() {
   const [extraServicesOpen, setExtraServicesOpen] = useState(false);
   const [videoFabOpen, setVideoFabOpen] = useState(false);
   const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
+  const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const reviewScrollRef = useRef<HTMLDivElement>(null);
   const serviceDropdownRef = useRef<HTMLDivElement>(null);
@@ -341,7 +342,6 @@ export default function Home() {
               { label: '메인', href: '#hero' },
               { label: '소개', href: '#jazz-info' },
               { label: '영상', href: '#videos' },
-              { label: '서비스', href: '#extra-services' },
               { label: '후기', href: '#reviews' },
               { label: '견적', href: '#pricing' },
             ].map((item) => (
@@ -355,6 +355,38 @@ export default function Home() {
                 <span className="menu-item-text">{item.label}</span>
               </a>
             ))}
+
+            {/* 서비스 드롭다운 */}
+            <div className="flex flex-col items-center">
+              <button
+                className="menu-item font-['Playfair_Display'] text-4xl md:text-6xl font-bold text-[#F5E6C8]/30 hover:text-[#C9A96E] transition-all duration-500 py-3 tracking-wider flex items-center gap-3"
+                onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
+              >
+                <span className="menu-item-text">서비스</span>
+                <svg
+                  className={`w-6 h-6 md:w-8 md:h-8 transition-transform duration-300 text-[#C9A96E]/60 ${mobileServiceOpen ? 'rotate-180' : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {mobileServiceOpen && (
+                <div className="flex flex-col items-center gap-1 pb-2">
+                  {SERVICE_ITEMS.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-sans text-[#F5E6C8]/50 hover:text-[#C9A96E] text-base md:text-lg tracking-widest transition-colors duration-300 py-1.5"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
           <div className="gold-line w-20 mt-10 mb-6" />
           <a href="https://pf.kakao.com/_wxovaM/chat" target="_blank" rel="noopener" className="font-sans text-[#C9A96E]/60 text-sm tracking-widest hover:text-[#C9A96E] transition-colors duration-300">
