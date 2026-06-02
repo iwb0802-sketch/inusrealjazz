@@ -145,7 +145,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const [floatingVisible, setFloatingVisible] = useState(false);
-  const [extraServicesOpen, setExtraServicesOpen] = useState(false);
+  const [extraServicesOpen, setExtraServicesOpen] = useState(true);
   const [videoFabOpen, setVideoFabOpen] = useState(false);
   const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
   const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
@@ -348,7 +348,7 @@ export default function Home() {
               <a
                 key={item.label}
                 href={item.href}
-                className="menu-item font-['Nanum_Myeongjo'] text-4xl md:text-6xl font-extrabold text-[#F5E6C8]/30 hover:text-[#C9A96E] transition-all duration-500 py-3 tracking-wider"
+                className="menu-item font-['Noto_Sans_KR'] text-4xl md:text-6xl font-black text-[#F5E6C8]/30 hover:text-[#C9A96E] transition-all duration-500 py-3 tracking-wider"
                 data-text={item.label}
                 onClick={(e) => { e.preventDefault(); scrollTo(item.href); }}
               >
@@ -359,7 +359,7 @@ export default function Home() {
             {/* 서비스 드롭다운 */}
             <div className="flex flex-col items-center">
               <button
-                className="menu-item font-['Nanum_Myeongjo'] text-4xl md:text-6xl font-extrabold text-[#F5E6C8]/30 hover:text-[#C9A96E] transition-all duration-500 py-3 tracking-wider flex items-center gap-3"
+                className="menu-item font-['Noto_Sans_KR'] text-4xl md:text-6xl font-black text-[#F5E6C8]/30 hover:text-[#C9A96E] transition-all duration-500 py-3 tracking-wider flex items-center gap-3"
                 onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
               >
                 <span className="menu-item-text">서비스</span>
