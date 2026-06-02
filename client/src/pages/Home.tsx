@@ -1165,7 +1165,7 @@ export default function Home() {
             </button>
           </div>
           {extraServicesOpen && (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 stagger-children max-w-2xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
               {[
                 {
                   label: '결혼식사회',
