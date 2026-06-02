@@ -1148,7 +1148,7 @@ export default function Home() {
 
       {/* ============ 추가 옵션 서비스 ============ */}
       <section className="py-20 md:py-28 bg-[#1A2332]/30" id="extra-services">
-        <div className="max-w-4xl mx-auto px-4 fade-in-section">
+        <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-14">
             <p className="font-['Cormorant_Garamond'] text-[#C9A96E] text-sm tracking-[0.3em] uppercase mb-3">More Services</p>
             <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-white mb-4">추가 옵션 서비스</h2>
