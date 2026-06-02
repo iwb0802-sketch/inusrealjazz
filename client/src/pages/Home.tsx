@@ -6,6 +6,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import InusCardPopup from "@/components/InusCardPopup";
 
 // ===== Asset URLs =====
 const HERO_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663600657495/44ZsjVDFrWC4oiA4rGaozX/hero-jazz-6FWZ6GDQDwHmgJxN6p3FiX.webp';
@@ -20,6 +21,16 @@ const REVIEWS = [
   'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/OoKMsdGvQlcpXrYJ.jpg',
   'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/deCYtxfuChxJnOtM.jpg',
   'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/FuEPeLdpXImaJhpa.jpg',
+];
+
+// 서비스 드롭다운 항목
+const SERVICE_ITEMS = [
+  { label: '결혼식사회', url: 'https://inusmc.co.kr' },
+  { label: '클래식연주', url: 'https://www.inusclassic.kr/' },
+  { label: '뮤지컬웨딩', url: 'https://inusmw.kr/' },
+  { label: '축가', url: 'https://inusmusic.kr/' },
+  { label: '모바일청첩장', url: 'https://inuscard.com' },
+  { label: '완성패키지', url: 'https://blog.naver.com/inusmusics/220652965646' },
 ];
 
 // ===== Hooks =====
@@ -136,8 +147,10 @@ export default function Home() {
   const [floatingVisible, setFloatingVisible] = useState(false);
   const [extraServicesOpen, setExtraServicesOpen] = useState(false);
   const [videoFabOpen, setVideoFabOpen] = useState(false);
+  const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const reviewScrollRef = useRef<HTMLDivElement>(null);
+  const serviceDropdownRef = useRef<HTMLDivElement>(null);
 
   useIntersectionObserver();
 
@@ -190,13 +203,25 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Close menu on outside click
+  // 비디오 FAB 외부 클릭 시 닫기
   useEffect(() => {
     if (!videoFabOpen) return;
     const handler = () => setVideoFabOpen(false);
     document.addEventListener('click', handler);
     return () => document.removeEventListener('click', handler);
   }, [videoFabOpen]);
+
+  // 서비스 드롭다운 외부 클릭 시 닫기
+  useEffect(() => {
+    if (!serviceDropdownOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (serviceDropdownRef.current && !serviceDropdownRef.current.contains(e.target as Node)) {
+        setServiceDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [serviceDropdownOpen]);
 
   // Smooth scroll
   const scrollTo = (id: string) => {
@@ -207,6 +232,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#0A1628] text-[#F5E6C8]">
+
+      {/* 팝업 */}
+      <InusCardPopup />
 
       {/* ============ HEADER / NAV ============ */}
       <header
@@ -223,6 +251,62 @@ export default function Home() {
             <span className="font-['Playfair_Display'] text-[#C9A96E] text-xl md:text-2xl font-bold tracking-wider">INUSMUSIC</span>
             <span className="hidden sm:inline text-[#F5E6C8]/60 text-xs font-sans tracking-widest uppercase">Jazz Wedding</span>
           </a>
+
+          {/* 데스크탑 네비게이션 */}
+          <nav className="hidden md:flex items-center gap-6">
+            {[
+              { label: '소개', href: '#jazz-info' },
+              { label: '영상', href: '#videos' },
+              { label: '후기', href: '#reviews' },
+              { label: '견적', href: '#pricing' },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="font-sans text-[#F5E6C8]/70 hover:text-[#C9A96E] text-sm transition-colors duration-300"
+                onClick={(e) => { e.preventDefault(); scrollTo(item.href); }}
+              >
+                {item.label}
+              </a>
+            ))}
+
+            {/* 서비스 드롭다운 */}
+            <div className="relative" ref={serviceDropdownRef}>
+              <button
+                className="flex items-center gap-1 font-sans text-[#F5E6C8]/70 hover:text-[#C9A96E] text-sm transition-colors duration-300"
+                onClick={() => setServiceDropdownOpen(!serviceDropdownOpen)}
+              >
+                서비스
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${serviceDropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {serviceDropdownOpen && (
+                <div className="absolute top-full right-0 mt-2 w-44 rounded-lg overflow-hidden shadow-2xl border border-[#C9A96E]/20 z-50"
+                  style={{ background: 'rgba(10, 22, 40, 0.97)', backdropFilter: 'blur(12px)' }}
+                >
+                  {SERVICE_ITEMS.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-3 font-sans text-[#F5E6C8]/70 hover:text-[#C9A96E] hover:bg-[#C9A96E]/10 text-sm transition-all duration-200"
+                      onClick={() => setServiceDropdownOpen(false)}
+                    >
+                      <span className="w-1 h-1 rounded-full bg-[#C9A96E]/50 flex-shrink-0" />
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
+
+          {/* 모바일 햄버거 버튼 */}
           <button
             id="menu-toggle"
             className={`relative w-11 h-11 flex flex-col items-center justify-center gap-1.5 z-[60] rounded-full border border-[#C9A96E]/50 bg-[#1A2332]/30 backdrop-blur-sm menu-btn-pulse ${menuOpen ? 'menu-open' : ''}`}
@@ -353,21 +437,21 @@ export default function Home() {
                 <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </div>
               <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#C9A96E] mb-3">합리적인 가격,<br className="md:hidden" /> 검증된 완성도</h3>
-              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">시장 평균 대비 효율적인 비용으로<br className="sm:hidden" /> 4만 쌍 이상의 데이터로<br className="sm:hidden" /> 검증된 완성도를 제공합니다.</p>
+              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">시장 평균 대비 효율적인 비용으로 4만 쌍 이상의 데이터로 검증된 완성도를 제공합니다.</p>
             </div>
             <div className="art-deco-frame p-8 bg-[#1A2332]/60 rounded gold-glow transition-all duration-500">
               <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mb-5">
                 <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
               </div>
               <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#C9A96E] mb-3">운영 시스템 기반의<br className="md:hidden" /> 안정성</h3>
-              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">사전 미팅 이중 체크 →<br className="sm:hidden" /> 이너스뮤직 운영 시스템 →<br className="sm:hidden" /> 당일 현장 이중 체크로<br className="sm:hidden" /> 완벽한 진행을 보장합니다.</p>
+              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">사전 미팅 이중 체크 → 이너스뮤직 운영 시스템 → 당일 현장 이중 체크로 완벽한 진행을 보장합니다.</p>
             </div>
             <div className="art-deco-frame p-8 bg-[#1A2332]/60 rounded gold-glow transition-all duration-500">
               <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mb-5">
                 <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
               </div>
               <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#C9A96E] mb-3">클래스가 다른<br className="md:hidden" /> 프리미엄 연주</h3>
-              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">클래식의 우아함,<br className="sm:hidden" /> 재즈의 세련됨, 중창의 풍성함 —<br className="sm:hidden" /> 예식에 맞는 최적의 구성을<br className="sm:hidden" /> 제안합니다.</p>
+              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">클래식의 우아함, 재즈의 세련됨, 중창의 풍성함 — 예식에 맞는 최적의 구성을 제안합니다.</p>
             </div>
           </div>
         </div>
@@ -942,7 +1026,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ 20-21. Q&A ============ */}
+      {/* ============ Q&A ============ */}
       <section className="py-20 md:py-28 bg-[#1A2332]/30" id="qna">
         <div className="max-w-4xl mx-auto px-4 fade-in-section">
           <div className="text-center mb-14">
@@ -995,13 +1079,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ 19. 이벤트 ============ */}
+      {/* ============ 이벤트 ============ */}
       <section className="py-20 md:py-28">
         <div className="max-w-4xl mx-auto px-4 fade-in-section">
           <div className="text-center mb-14">
             <p className="font-['Cormorant_Garamond'] text-[#C9A96E] text-sm tracking-[0.3em] uppercase mb-3">Special Event</p>
             <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-white mb-4">이너스뮤직 특별 이벤트</h2>
-            <p className="font-sans text-[#F5E6C8]/50 text-sm mt-3">예식을 준비하시는 고객님들께<br className="sm:hidden" /> 실질적으로 도움이 되는<br className="sm:hidden" /> 혜택을 함께 제공합니다.</p>
+            <p className="font-sans text-[#F5E6C8]/50 text-sm mt-3">예식을 준비하시는 고객님들께 실질적으로 도움이 되는 혜택을 함께 제공합니다.</p>
             <div className="gold-line w-16 mx-auto mt-6" />
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -1011,8 +1095,8 @@ export default function Home() {
                 <h3 className="font-sans text-white text-base font-medium">숨고 리뷰 이벤트 참여 혜택</h3>
               </div>
               <ul className="space-y-2 font-sans text-[#F5E6C8]/60 text-sm">
-                <li className="flex items-start gap-2"><span className="text-[#7ECEC1] mt-0.5">✓</span><span>숨고 리뷰 작성 시<br className="md:hidden" /> <span className="text-[#C9A96E] font-medium">최대 2만원 할인</span> 혜택</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#7ECEC1] mt-0.5">✓</span><span>결혼 준비에 꼭 필요한<br className="md:hidden" /> <span className="text-[#C9A96E] font-medium">웨딩 준비 체크리스트</span> 제공</span></li>
+                <li className="flex items-start gap-2"><span className="text-[#7ECEC1] mt-0.5">✓</span><span>숨고 리뷰 작성 시 <span className="text-[#C9A96E] font-medium">최대 2만원 할인</span> 혜택</span></li>
+                <li className="flex items-start gap-2"><span className="text-[#7ECEC1] mt-0.5">✓</span><span>결혼 준비에 꼭 필요한 <span className="text-[#C9A96E] font-medium">웨딩 준비 체크리스트</span> 제공</span></li>
               </ul>
             </div>
             <div className="art-deco-frame p-8 bg-[#1A2332]/60 rounded">
@@ -1051,11 +1135,11 @@ export default function Home() {
           {extraServicesOpen && (
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 stagger-children max-w-2xl mx-auto">
               {[
-                { label: '클래식', url: 'https://inusclassic.kr/' },
-                { label: '중창팝페라', url: 'https://blog.naver.com/inusmusics/220622621535' },
+                { label: '결혼식사회', url: 'https://inusmc.co.kr' },
+                { label: '클래식연주', url: 'https://www.inusclassic.kr/' },
                 { label: '뮤지컬웨딩', url: 'https://inusmw.kr/' },
-                { label: '사회', url: 'https://inusmc.co.kr/' },
                 { label: '축가', url: 'https://inusmusic.kr/' },
+                { label: '모바일청첩장', url: 'https://inuscard.com' },
                 { label: '완성 패키지', url: 'https://blog.naver.com/inusmusics/220652965646' },
               ].map((s) => (
                 <a key={s.label} href={s.url} target="_blank" rel="noopener" className="art-deco-frame p-6 bg-[#1A2332]/60 rounded text-center gold-glow transition-all duration-500 hover:bg-[#1A2332]/80 group">
