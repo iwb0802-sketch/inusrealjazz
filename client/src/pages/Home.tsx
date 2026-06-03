@@ -378,7 +378,7 @@ export default function Home() {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-sans text-[#F5E6C8]/50 hover:text-[#C9A96E] text-base md:text-lg tracking-widest transition-colors duration-300 py-1.5"
+                      className="font-['Noto_Serif_KR'] text-[#F5E6C8]/50 hover:text-[#C9A96E] text-xl md:text-2xl font-medium tracking-widest transition-colors duration-300 py-1.5"
                       onClick={() => setMenuOpen(false)}
                     >
                       {item.label}
