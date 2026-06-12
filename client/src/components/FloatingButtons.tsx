@@ -111,7 +111,7 @@ export default function FloatingButtons() {
         {/* 영상 서브메뉴 팝업 */}
         {videoMenuOpen && (
           <div
-            className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 flex flex-col gap-1.5 z-50"
+            className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 flex flex-col gap-1.5 z-50 pointer-events-auto"
             style={{ transform: 'translateX(calc(-50% - 60px))' }}
           >
             <a
