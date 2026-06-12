@@ -84,6 +84,7 @@ const snsLinks = [
 
 export default function FloatingButtons() {
   const [visible, setVisible] = useState(false);
+  const [videoMenuOpen, setVideoMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,19 +108,49 @@ export default function FloatingButtons() {
       {/* 한 줄: 영상보기 | SNS 아이콘 | 카톡상담 - 가운데 정렬 */}
       <div className="relative flex justify-center items-stretch px-4 pb-5 pt-3 gap-0">
 
-        {/* 왼쪽: 실황영상보기 */}
-        <a
-          href="https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=24"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${visible ? 'pointer-events-auto' : 'pointer-events-none'} flex items-center gap-2 px-5 py-3 bg-[#0A1628] border border-[#C9A96E]/40 border-r-0 text-[#F5E6C8]/80 hover:text-[#F5E6C8] hover:bg-[#122240] hover:border-[#C9A96E]/70 transition-all duration-300 shadow-xl shadow-black/40 group shrink-0`}
+        {/* 영상 서브메뉴 팝업 */}
+        {videoMenuOpen && (
+          <div
+            className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 flex flex-col gap-1.5 z-50"
+            style={{ transform: 'translateX(calc(-50% - 60px))' }}
+          >
+            <a
+              href="https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=24"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setVideoMenuOpen(false)}
+              className="whitespace-nowrap flex items-center gap-2 bg-[#0A1628] border border-[#C9A96E]/40 text-[#F5E6C8]/80 hover:text-[#C9A96E] hover:bg-[#122240] hover:border-[#C9A96E]/70 text-xs px-4 py-2.5 transition-all duration-200 shadow-xl shadow-black/40"
+              style={{ borderRadius: '4px', fontFamily: "'Noto Serif KR', serif" }}
+            >
+              <Play className="w-3 h-3 text-[#C9A96E] flex-shrink-0" strokeWidth={2} />
+              재즈 영상보기
+            </a>
+            <a
+              href="https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=67"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setVideoMenuOpen(false)}
+              className="whitespace-nowrap flex items-center gap-2 bg-[#0A1628] border border-[#C9A96E]/40 text-[#F5E6C8]/80 hover:text-[#C9A96E] hover:bg-[#122240] hover:border-[#C9A96E]/70 text-xs px-4 py-2.5 transition-all duration-200 shadow-xl shadow-black/40"
+              style={{ borderRadius: '4px', fontFamily: "'Noto Serif KR', serif" }}
+            >
+              <Play className="w-3 h-3 text-[#C9A96E] flex-shrink-0" strokeWidth={2} />
+              외국인재즈 영상보기
+            </a>
+          </div>
+        )}
+
+        {/* 왼쪽: 실황영상보기 (토글 버튼) */}
+        <button
+          onClick={() => setVideoMenuOpen(!videoMenuOpen)}
+          className={`${visible ? 'pointer-events-auto' : 'pointer-events-none'} flex items-center gap-2 px-5 py-3 bg-[#0A1628] border border-[#C9A96E]/40 border-r-0 text-[#F5E6C8]/80 hover:text-[#F5E6C8] hover:bg-[#122240] hover:border-[#C9A96E]/70 transition-all duration-300 shadow-xl shadow-black/40 group shrink-0 ${videoMenuOpen ? 'bg-[#122240] border-[#C9A96E]/70' : ''}`}
           style={{ borderRadius: '4px 0 0 4px' }}
         >
-          <Play className="w-3.5 h-3.5 text-[#C9A96E] group-hover:scale-110 transition-transform duration-300 flex-shrink-0" strokeWidth={2} />
+          <Play className={`w-3.5 h-3.5 text-[#C9A96E] transition-transform duration-300 flex-shrink-0 ${videoMenuOpen ? 'scale-110' : 'group-hover:scale-110'}`} strokeWidth={2} />
           <span className="text-xs tracking-wider whitespace-nowrap" style={{ fontFamily: "'Noto Serif KR', serif" }}>
             실황영상보기
           </span>
-        </a>
+          <svg className={`w-3 h-3 text-[#C9A96E]/60 transition-transform duration-300 flex-shrink-0 ${videoMenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+        </button>
 
         {/* 가운데: SNS 아이콘 */}
         <div className={`${visible ? 'pointer-events-auto' : 'pointer-events-none'} flex items-center bg-[#0A1628] border border-[#C9A96E]/40 shadow-xl shadow-black/40 shrink-0`}>
