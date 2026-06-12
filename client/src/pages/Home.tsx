@@ -7,6 +7,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import InusCardPopup from "@/components/InusCardPopup";
+import FloatingButtons from "@/components/FloatingButtons";
 
 // ===== Asset URLs =====
 const HERO_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663600657495/44ZsjVDFrWC4oiA4rGaozX/hero-jazz-6FWZ6GDQDwHmgJxN6p3FiX.webp';
@@ -1225,39 +1226,8 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* ============ Floating CTA - Right (상담하기) ============ */}
-      <div className={`floating-cta ${floatingVisible ? 'floating-btn-visible' : 'floating-btn-hidden'}`} id="floating-right">
-        <a href="https://pf.kakao.com/_wxovaM/chat" target="_blank" rel="noopener" className="flex items-center gap-2 bg-[#7ECEC1] hover:bg-[#5BA89C] text-[#0A1628] font-sans font-medium text-sm px-5 py-3 rounded-full shadow-lg shadow-[#7ECEC1]/20 transition-all duration-300">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-          상담하기
-        </a>
-      </div>
-
-      {/* ============ Floating CTA - Left (영상보기) ============ */}
-      <div className={`floating-video ${floatingVisible ? 'floating-btn-visible' : 'floating-btn-hidden'}`} id="floating-left">
-        <div className="relative">
-          <button
-            id="video-fab-toggle"
-            className="flex items-center gap-2 bg-[#C9A96E] hover:bg-[#E8D5A8] text-[#0A1628] font-sans font-medium text-sm px-5 py-3 rounded-full shadow-lg shadow-[#C9A96E]/20 transition-all duration-300"
-            onClick={(e) => { e.stopPropagation(); setVideoFabOpen(!videoFabOpen); }}
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            영상보기
-          </button>
-          {videoFabOpen && (
-            <div className="absolute bottom-full left-0 mb-3 flex flex-col gap-2">
-              <a href="https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=24" target="_blank" rel="noopener" className="whitespace-nowrap flex items-center gap-2 bg-[#122240] border border-[#C9A96E]/30 text-[#F5E6C8] font-sans text-sm px-4 py-2.5 rounded-full shadow-lg transition-all duration-300 hover:border-[#C9A96E] hover:text-[#C9A96E]">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                재즈 영상보기
-              </a>
-              <a href="https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=67" target="_blank" rel="noopener" className="whitespace-nowrap flex items-center gap-2 bg-[#122240] border border-[#C9A96E]/30 text-[#F5E6C8] font-sans text-sm px-4 py-2.5 rounded-full shadow-lg transition-all duration-300 hover:border-[#C9A96E] hover:text-[#C9A96E]">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
-                외국인밴드 영상
-              </a>
-            </div>
-          )}
-        </div>
-      </div>
+            {/* ============ Floating Buttons (하단 바) ============ */}
+      <FloatingButtons />
 
     </div>
   );
