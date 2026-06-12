@@ -2,7 +2,7 @@
  * 하단 플로팅 버튼
  * 한 줄: [ ▶ 실황영상보기 ] [ 홈페이지·인스타·유튜브 pill ] [ 💬 카톡상담하기 ]
  * 히어로 섹션(100vh) 지나면 나타남
- * Design: Midnight Jazz Lounge — Deep Navy + Gold 테마와 조화
+ * Design: Midnight Jazz Lounge — Deep Navy (#0A1628) + Gold (#C9A96E) 테마
  */
 import { useState, useEffect } from "react";
 import { MessageCircle, Play, Globe } from "lucide-react";
@@ -13,7 +13,7 @@ const NaverBlogIcon = () => (
     <path
       d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"
       fill="none"
-      stroke="rgba(0,210,100,0.85)"
+      stroke="rgba(201,169,110,0.8)"
       strokeWidth="1.8"
       strokeLinejoin="round"
     />
@@ -30,7 +30,7 @@ const YoutubeIcon = () => (
     <path
       d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
       fill="none"
-      stroke="rgba(255,50,50,0.85)"
+      stroke="rgba(255,80,80,0.85)"
       strokeWidth="0.8"
       strokeLinejoin="round"
     />
@@ -45,7 +45,7 @@ const YoutubeIcon = () => (
 const InstagramIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="ig-grad1" cx="30%" cy="107%" r="150%">
+      <radialGradient id="ig-grad-float" cx="30%" cy="107%" r="150%">
         <stop offset="0%" stopColor="#fdf497" />
         <stop offset="5%" stopColor="#fdf497" />
         <stop offset="45%" stopColor="#fd5949" />
@@ -53,7 +53,7 @@ const InstagramIcon = () => (
         <stop offset="90%" stopColor="#285AEB" />
       </radialGradient>
     </defs>
-    <rect x="2" y="2" width="20" height="20" rx="6" ry="6" fill="url(#ig-grad1)" />
+    <rect x="2" y="2" width="20" height="20" rx="6" ry="6" fill="url(#ig-grad-float)" />
     <rect x="7" y="7" width="10" height="10" rx="3" ry="3" fill="none" stroke="white" strokeWidth="1.5" />
     <circle cx="12" cy="12" r="2.5" fill="none" stroke="white" strokeWidth="1.5" />
     <circle cx="16.5" cy="7.5" r="0.8" fill="white" />
@@ -101,24 +101,28 @@ export default function FloatingButtons() {
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
     >
+      {/* 배경 그라데이션 — 페이지 하단 콘텐츠와 자연스럽게 분리 */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/80 to-transparent pointer-events-none" />
+
       {/* 한 줄: 영상보기 | SNS 아이콘 | 카톡상담 - 가운데 정렬 */}
-      <div className="flex justify-center items-stretch px-4 pb-6 gap-2">
+      <div className="relative flex justify-center items-stretch px-4 pb-5 pt-3 gap-0">
 
         {/* 왼쪽: 실황영상보기 */}
         <a
           href="https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=24"
           target="_blank"
           rel="noopener noreferrer"
-          className={`${visible ? 'pointer-events-auto' : 'pointer-events-none'} flex items-center gap-2 px-4 py-3 bg-[#0A1628]/90 backdrop-blur-sm border border-[#C9A96E]/30 text-[#F5E6C8] hover:bg-[#122240] hover:border-[#C9A96E]/60 transition-all duration-300 shadow-lg shadow-black/30 group shrink-0`}
+          className={`${visible ? 'pointer-events-auto' : 'pointer-events-none'} flex items-center gap-2 px-5 py-3 bg-[#0A1628] border border-[#C9A96E]/40 border-r-0 text-[#F5E6C8]/80 hover:text-[#F5E6C8] hover:bg-[#122240] hover:border-[#C9A96E]/70 transition-all duration-300 shadow-xl shadow-black/40 group shrink-0`}
+          style={{ borderRadius: '4px 0 0 4px' }}
         >
-          <Play className="w-4 h-4 text-[#C9A96E] group-hover:scale-110 transition-transform duration-300" strokeWidth={1.5} />
-          <span className="text-xs tracking-wide" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+          <Play className="w-3.5 h-3.5 text-[#C9A96E] group-hover:scale-110 transition-transform duration-300 flex-shrink-0" strokeWidth={2} />
+          <span className="text-xs tracking-wider whitespace-nowrap" style={{ fontFamily: "'Noto Serif KR', serif" }}>
             실황영상보기
           </span>
         </a>
 
         {/* 가운데: SNS 아이콘 */}
-        <div className={`${visible ? 'pointer-events-auto' : 'pointer-events-none'} flex items-center gap-0 bg-[#0A1628]/90 backdrop-blur-sm border border-[#C9A96E]/30 shadow-lg shadow-black/30 shrink-0`}>
+        <div className={`${visible ? 'pointer-events-auto' : 'pointer-events-none'} flex items-center bg-[#0A1628] border border-[#C9A96E]/40 shadow-xl shadow-black/40 shrink-0`}>
           {snsLinks.map((sns, i) => (
             <a
               key={sns.label}
@@ -126,8 +130,8 @@ export default function FloatingButtons() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={sns.label}
-              className={`flex items-center justify-center w-11 h-full text-[#C9A96E]/70 hover:text-[#C9A96E] hover:bg-[#122240] transition-all duration-200 active:scale-95 ${
-                i < snsLinks.length - 1 ? "border-r border-[#C9A96E]/15" : ""
+              className={`flex items-center justify-center w-10 h-full text-[#C9A96E]/60 hover:text-[#C9A96E] hover:bg-[#122240] transition-all duration-200 active:scale-95 ${
+                i < snsLinks.length - 1 ? "border-r border-[#C9A96E]/20" : ""
               }`}
             >
               {sns.isLucide
@@ -138,15 +142,16 @@ export default function FloatingButtons() {
           ))}
         </div>
 
-        {/* 오른쪽: 카톡상담하기 */}
+        {/* 오른쪽: 카톡상담하기 — Gold 강조 */}
         <a
           href="https://pf.kakao.com/_wxovaM/chat"
           target="_blank"
           rel="noopener noreferrer"
-          className={`${visible ? 'pointer-events-auto' : 'pointer-events-none'} flex items-center gap-2 px-4 py-3 bg-[#C9A96E] text-[#0A1628] hover:bg-[#E8D5A8] transition-all duration-300 shadow-lg shadow-black/30 group shrink-0`}
+          className={`${visible ? 'pointer-events-auto' : 'pointer-events-none'} flex items-center gap-2 px-5 py-3 bg-[#C9A96E] text-[#0A1628] hover:bg-[#E8D5A8] border border-[#C9A96E] transition-all duration-300 shadow-xl shadow-[#C9A96E]/20 group shrink-0 font-medium`}
+          style={{ borderRadius: '0 4px 4px 0' }}
         >
-          <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" strokeWidth={1.5} />
-          <span className="text-xs tracking-wide font-medium" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+          <MessageCircle className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" strokeWidth={2} />
+          <span className="text-xs tracking-wider whitespace-nowrap" style={{ fontFamily: "'Noto Serif KR', serif" }}>
             카톡상담하기
           </span>
         </a>
