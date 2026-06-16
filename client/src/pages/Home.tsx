@@ -8,6 +8,7 @@
 import { useEffect, useRef, useState } from "react";
 import InusCardPopup from "@/components/InusCardPopup";
 import FloatingButtons from "@/components/FloatingButtons";
+import QuickNav from "@/components/QuickNav";
 
 // ===== Asset URLs =====
 const HERO_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663600657495/44ZsjVDFrWC4oiA4rGaozX/hero-jazz-6FWZ6GDQDwHmgJxN6p3FiX.webp';
@@ -313,7 +314,7 @@ export default function Home() {
             id="menu-toggle"
             className={`relative w-11 h-11 flex flex-col items-center justify-center gap-1.5 z-[60] rounded-full border border-[#C9A96E]/50 bg-[#1A2332]/30 backdrop-blur-sm menu-btn-pulse ${menuOpen ? 'menu-open' : ''}`}
             aria-label="메뉴"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => { const next = !menuOpen; setMenuOpen(next); window.dispatchEvent(new CustomEvent("mainNavToggle", { detail: { open: next } })); }}
           >
             <span className="menu-bar w-6 h-[2px] bg-[#C9A96E] transition-all duration-500 origin-center" />
             <span className="menu-bar w-4 h-[2px] bg-[#C9A96E] transition-all duration-500 origin-center" />
@@ -332,7 +333,7 @@ export default function Home() {
           id="menu-close"
           className="absolute top-6 right-6 z-20 w-12 h-12 flex items-center justify-center group cursor-pointer"
           aria-label="메뉴 닫기"
-          onClick={() => setMenuOpen(false)}
+          onClick={() => { setMenuOpen(false); window.dispatchEvent(new CustomEvent("mainNavToggle", { detail: { open: false } })); }}
         >
           <span className="absolute w-8 h-[2px] bg-[#C9A96E] rotate-45 transition-all duration-300 group-hover:bg-[#F5E6C8] group-hover:w-9" />
           <span className="absolute w-8 h-[2px] bg-[#C9A96E] -rotate-45 transition-all duration-300 group-hover:bg-[#F5E6C8] group-hover:w-9" />
@@ -1228,6 +1229,9 @@ export default function Home() {
 
             {/* ============ Floating Buttons (하단 바) ============ */}
       <FloatingButtons />
+
+      {/* ============ Side QuickNav (오른쪽 사이드 메뉴) ============ */}
+      <QuickNav />
 
     </div>
   );
