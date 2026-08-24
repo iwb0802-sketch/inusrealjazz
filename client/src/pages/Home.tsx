@@ -836,7 +836,7 @@ export default function Home() {
           <div className="art-deco-frame p-8 md:p-10 bg-[#1A2332]/50 rounded-lg mb-10">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-shrink-0 w-20 h-20 rounded-full border-2 border-[#C9A96E]/40 overflow-hidden">
-                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/FOVfQLNnuupjPsPj.jpg" alt="정우연" className="w-full h-full object-cover" />
+                <img src="/images/artists/jung-wooyeon.webp" alt="정우연" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
@@ -860,9 +860,9 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-6 stagger-children">
             {[
-              { img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/KjHyordSoIxTaUHp.jpg', name: 'Nam, Seung-Yeon', nameKo: '남승연 · 재즈피아노', career: ['동아방송대 실용음악과 졸업', '인천 펜타포트 음악축제 세션 참여', '국악 퓨전 공연 피아노 세션', '선데이재즈브런치 피아노 연주자', '재즈밴드 활동 및 재즈클럽 공연 다수'] },
-              { img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/nzcHJvLzcbBEWBdP.jpg', name: 'Kim, Hyun-Bae', nameKo: '김현배 · 콘트라베이스', career: ['재능대 재즈음악과 재즈 베이스 전공', '모스틀리 팝스 오케스트라 세션', '제천국제음악영화제 준우승/관객투표상', '일본 Kanazawa Jazz Street 초청 공연', '미국대사관 독립기념일 행사 초청'] },
-              { img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/aYRcoCyonibrMoqB.jpg', name: 'Joo, Hyo-Jin', nameKo: '주효진 · 드러머', career: ['숭실대 콘서바토리 실용음악과 졸업', '용산구청장 표창장 수상', '평택 미군기지 캠프 험프리스 공연', '재즈밴드 New Traditional Ensemble', '부기우기, 숨길 등 재즈클럽 연주 다수'] },
+              { img: '/images/artists/nam-seungyeon.webp', name: 'Nam, Seung-Yeon', nameKo: '남승연 · 재즈피아노', career: ['동아방송대 실용음악과 졸업', '인천 펜타포트 음악축제 세션 참여', '국악 퓨전 공연 피아노 세션', '선데이재즈브런치 피아노 연주자', '재즈밴드 활동 및 재즈클럽 공연 다수'] },
+              { img: '/images/artists/kim-hyunbae.webp', name: 'Kim, Hyun-Bae', nameKo: '김현배 · 콘트라베이스', career: ['재능대 재즈음악과 재즈 베이스 전공', '모스틀리 팝스 오케스트라 세션', '제천국제음악영화제 준우승/관객투표상', '일본 Kanazawa Jazz Street 초청 공연', '미국대사관 독립기념일 행사 초청'] },
+              { img: '/images/artists/joo-hyojin.webp', name: 'Joo, Hyo-Jin', nameKo: '주효진 · 드러머', career: ['숭실대 콘서바토리 실용음악과 졸업', '용산구청장 표창장 수상', '평택 미군기지 캠프 험프리스 공연', '재즈밴드 New Traditional Ensemble', '부기우기, 숨길 등 재즈클럽 연주 다수'] },
             ].map((p) => (
               <div key={p.name} className="art-deco-frame p-6 bg-[#1A2332]/50 rounded gold-glow transition-all duration-500">
                 <div className="w-14 h-14 rounded-full border border-[#C9A96E]/30 overflow-hidden mb-4 mx-auto">
