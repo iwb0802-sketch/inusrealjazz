@@ -18,11 +18,12 @@ const WEDDING_HALL_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/3105196636006574
 const ABSTRACT_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663600657495/44ZsjVDFrWC4oiA4rGaozX/jazz-abstract-gold-L5q6pp5Hi9jFqhJyKkQ9zd.webp';
 
 const REVIEWS = [
-  'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/axRkrSZkphxkkEWg.jpg',
-  'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/JRUmHxySXDQwJcAs.jpg',
-  'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/OoKMsdGvQlcpXrYJ.jpg',
-  'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/deCYtxfuChxJnOtM.jpg',
-  'https://files.manuscdn.com/user_upload_by_module/session_file/310519663600657495/FuEPeLdpXImaJhpa.jpg',
+  '/images/reviews/review-1.webp',
+  '/images/reviews/review-2.webp',
+  '/images/reviews/review-3.webp',
+  '/images/reviews/review-4.webp',
+  '/images/reviews/review-5.webp',
+  '/images/reviews/review-6.webp',
 ];
 
 // 서비스 드롭다운 항목
