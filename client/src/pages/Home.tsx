@@ -11,11 +11,11 @@ import FloatingButtons from "@/components/FloatingButtons";
 import QuickNav from "@/components/QuickNav";
 
 // ===== Asset URLs =====
-const HERO_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663600657495/44ZsjVDFrWC4oiA4rGaozX/hero-jazz-6FWZ6GDQDwHmgJxN6p3FiX.webp';
-const INSTRUMENTS_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663600657495/44ZsjVDFrWC4oiA4rGaozX/jazz-instruments-WKCCiDfwLuHWzKy6QDMgTa.webp';
-const PERFORMANCE_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663600657495/44ZsjVDFrWC4oiA4rGaozX/jazz-performance-mtJTDxZvdrFUMhLMHhZ82v.webp';
-const WEDDING_HALL_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663600657495/44ZsjVDFrWC4oiA4rGaozX/wedding-hall-jazz-J2yk3iSGnqMH3qHcoE3suY.webp';
-const ABSTRACT_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663600657495/44ZsjVDFrWC4oiA4rGaozX/jazz-abstract-gold-L5q6pp5Hi9jFqhJyKkQ9zd.webp';
+const HERO_IMG = '/images/jazz/hero-jazz.webp';
+const INSTRUMENTS_IMG = '/images/jazz/jazz-instruments.webp';
+const PERFORMANCE_IMG = '/images/jazz/jazz-performance.webp';
+const WEDDING_HALL_IMG = '/images/jazz/wedding-hall-jazz.webp';
+const ABSTRACT_IMG = '/images/jazz/jazz-abstract-gold.webp';
 
 const REVIEWS = [
   '/images/reviews/review-1.webp',
