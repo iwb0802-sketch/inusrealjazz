@@ -986,28 +986,27 @@ export default function Home() {
 
       {/* ============ 18. 퀵 메뉴 ============ */}
       <section className="py-16 md:py-20" id="contact">
-        <div className="max-w-4xl mx-auto px-4 fade-in-section">
+        <div className="max-w-3xl mx-auto px-4 fade-in-section">
           <div className="text-center mb-10">
             <p className="font-['Cormorant_Garamond'] text-[#C9A96E] text-sm tracking-[0.3em] uppercase mb-3">Quick Menu</p>
             <h2 className="font-['Playfair_Display'] text-2xl md:text-3xl font-bold text-white mb-4">바로가기</h2>
             <div className="gold-line w-16 mx-auto mt-4" />
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 stagger-children">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto stagger-children">
             {[
-              { label: '재즈 영상보기', url: 'https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=24' },
-              { label: '외국인밴드 영상', url: 'https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=67' },
-              { label: '상품 문의하기', url: 'http://inusmusics.dothome.co.kr/xe/inusmusic/' },
-              { label: '이너스 예약하기', url: 'https://blog.naver.com/inusmusics/223023961320' },
-              { label: '카톡 상담하기', url: 'https://pf.kakao.com/_wxovaM/chat' },
-              { label: '후기글 보기', url: 'http://musicin.godohosting.com/bbs/board.php?bo_table=forum' },
-              { label: '이너스 진행이력', url: 'https://blog.naver.com/inusmusics/221231802647' },
-              { label: '이너스 예약현황', url: 'http://inusmusics.dothome.co.kr/xe/board_nOmW18/' },
+              { label: '재즈 영상보기', desc: '실제 예식 재즈 연주 영상', url: 'https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=24' },
+              { label: '외국인밴드 영상', desc: '외국인 연주자 구성 영상', url: 'https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=67' },
+              { label: '이너스 예약현황', desc: '실시간 예약 가능 일정 확인', url: 'http://inusmusics.dothome.co.kr/xe/board_nOmW18/' },
+              { label: '카톡 상담하기', desc: '가장 빠른 상담 · 견적 문의', url: 'https://pf.kakao.com/_wxovaM/chat' },
             ].map((m) => (
-              <a key={m.label} href={m.url} target="_blank" rel="noopener" className="art-deco-frame p-4 bg-[#1A2332]/50 rounded text-center gold-glow transition-all duration-500 hover:bg-[#1A2332]/80 group">
-                <div className="w-12 h-12 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mx-auto mb-3 text-[#C9A96E] group-hover:bg-[#C9A96E]/20 transition-all duration-300">
+              <a key={m.label} href={m.url} target="_blank" rel="noopener" className="art-deco-frame flex items-center gap-4 px-6 py-6 bg-[#1A2332]/50 rounded gold-glow transition-all duration-500 hover:bg-[#1A2332]/80 group">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#C9A96E]/10 flex items-center justify-center text-[#C9A96E] group-hover:bg-[#C9A96E]/20 transition-all duration-300">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                 </div>
-                <p className="font-sans text-[#F5E6C8]/70 text-xs group-hover:text-[#C9A96E] transition-colors duration-300">{m.label}</p>
+                <div className="text-left">
+                  <p className="font-sans text-white text-base font-medium group-hover:text-[#C9A96E] transition-colors duration-300">{m.label}</p>
+                  <p className="font-sans text-[#F5E6C8]/50 text-xs mt-1">{m.desc}</p>
+                </div>
               </a>
             ))}
           </div>
