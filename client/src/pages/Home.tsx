@@ -458,40 +458,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ 2. 이너스 강점 ============ */}
-      <section className="py-20 md:py-28 bg-[#1A2332]/30 relative">
-        <div className="max-w-5xl mx-auto px-4 fade-in-section">
-          <div className="text-center mb-16">
-            <p className="font-['Cormorant_Garamond'] text-[#C9A96E] text-sm tracking-[0.3em] uppercase mb-3">Why INUSMUSIC</p>
-            <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-white mb-3 whitespace-nowrap">합리적인 선택, 확실한 차이</h2>
-            <div className="gold-line w-16 mx-auto mt-6" />
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 stagger-children">
-            <div className="art-deco-frame p-8 bg-[#1A2332]/60 rounded gold-glow transition-all duration-500">
-              <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mb-5">
-                <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              </div>
-              <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#C9A96E] mb-3">합리적인 가격,<br className="md:hidden" /> 검증된 완성도</h3>
-              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">시장 평균 대비 효율적인 비용으로 4만 쌍 이상의 데이터로 검증된 완성도를 제공합니다.</p>
-            </div>
-            <div className="art-deco-frame p-8 bg-[#1A2332]/60 rounded gold-glow transition-all duration-500">
-              <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mb-5">
-                <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-              </div>
-              <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#C9A96E] mb-3">운영 시스템 기반의<br className="md:hidden" /> 안정성</h3>
-              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">사전 미팅 이중 체크 → 이너스뮤직 운영 시스템 → 당일 현장 이중 체크로 완벽한 진행을 보장합니다.</p>
-            </div>
-            <div className="art-deco-frame p-8 bg-[#1A2332]/60 rounded gold-glow transition-all duration-500">
-              <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mb-5">
-                <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
-              </div>
-              <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#C9A96E] mb-3">클래스가 다른<br className="md:hidden" /> 프리미엄 연주</h3>
-              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">클래식의 우아함, 재즈의 세련됨, 중창의 풍성함 — 예식에 맞는 최적의 구성을 제안합니다.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ============ 3. 재즈 설명 ============ */}
       <section className="py-20 md:py-28 relative" id="jazz-info">
         <div className="max-w-6xl mx-auto px-4">
@@ -537,24 +503,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ 4. 재즈 추천 ============ */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={PERFORMANCE_IMG} alt="재즈 연주" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[#0A1628]/85" />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center fade-in-section">
-          <div className="art-deco-frame p-10 md:p-16 bg-[#0A1628]/60 backdrop-blur-sm rounded-lg">
-            <p className="font-['Cormorant_Garamond'] text-[#C9A96E] text-sm tracking-[0.3em] uppercase mb-4">Recommendation</p>
-            <h2 className="font-['Playfair_Display'] text-2xl md:text-3xl font-bold text-white mb-6 leading-snug">
-              호텔 · 하우스웨딩 등<br />
-              공간의 분위기와 완성도를<br />
-              중요하게 생각하신다면
-            </h2>
-            <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed max-w-xl mx-auto">
-              재즈 연주를 가장 많이 선택하시는 구성이며, 실제 만족도가 높은 연출 방식입니다.
+      {/* ============ 4. 강점 + 추천 + 시스템 (통합) ============ */}
+      <section className="py-20 md:py-28 bg-[#1A2332]/30 relative">
+        <div className="max-w-5xl mx-auto px-4 fade-in-section">
+          <div className="text-center mb-12">
+            <p className="font-['Cormorant_Garamond'] text-[#C9A96E] text-sm tracking-[0.3em] uppercase mb-3">Why INUSMUSIC</p>
+            <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-white mb-3 whitespace-nowrap">합리적인 선택, 확실한 차이</h2>
+            <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed mt-5 max-w-xl mx-auto">
+              호텔 · 하우스웨딩 등 <span className="text-[#C9A96E]">공간의 분위기와 완성도</span>를 중요하게 생각하신다면,
+              재즈 연주는 가장 많이 선택하시는 구성이며 실제 만족도가 높은 연출 방식입니다.
             </p>
-            <div className="gold-line w-16 mx-auto mt-8" />
+            <div className="gold-line w-16 mx-auto mt-6" />
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 stagger-children">
+            <div className="art-deco-frame p-8 bg-[#1A2332]/60 rounded gold-glow transition-all duration-500">
+              <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#C9A96E] mb-3">합리적인 가격,<br className="md:hidden" /> 검증된 완성도</h3>
+              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">시장 평균 대비 효율적인 비용으로 4만 쌍 이상의 데이터로 검증된 완성도를 제공합니다.</p>
+            </div>
+            <div className="art-deco-frame p-8 bg-[#1A2332]/60 rounded gold-glow transition-all duration-500">
+              <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              </div>
+              <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#C9A96E] mb-3">운영 시스템 기반의<br className="md:hidden" /> 안정성</h3>
+              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">사전 미팅 이중 체크 → 이너스뮤직 운영 시스템 → 당일 현장 이중 체크로 완벽한 진행을 보장합니다.</p>
+            </div>
+            <div className="art-deco-frame p-8 bg-[#1A2332]/60 rounded gold-glow transition-all duration-500">
+              <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
+              </div>
+              <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#C9A96E] mb-3">클래스가 다른<br className="md:hidden" /> 프리미엄 연주</h3>
+              <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">클래식의 우아함, 재즈의 세련됨, 중창의 풍성함 — 예식에 맞는 최적의 구성을 제안합니다.</p>
+            </div>
+          </div>
+          <div className="mt-12 art-deco-frame p-6 md:p-8 bg-[#1A2332]/60 rounded fade-in-section">
+            <p className="text-center font-['Playfair_Display'] text-lg md:text-xl text-white font-semibold mb-2">
+              예식 당일의 변수까지 <span className="text-[#7ECEC1]">시스템</span>으로 대비합니다
+            </p>
+            <p className="text-center font-sans text-[#F5E6C8]/50 text-xs mb-7">혹시 모를 변수나 당일 진행에 대한 불안감 없이</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              {[
+                { title: '전속 계약 진행', sub: 'No-show 걱정 없음' },
+                { title: '이중 체크', sub: '예식 2시간 전 / 1시간 전' },
+                { title: '예비 연주자 대기', sub: '만일의 상황 대비' },
+              ].map((item) => (
+                <div key={item.title} className="flex items-start gap-3 justify-center sm:justify-start">
+                  <span className="text-[#7ECEC1] text-sm mt-0.5">✓</span>
+                  <div>
+                    <p className="font-sans text-white text-sm font-medium">{item.title}</p>
+                    <p className="font-sans text-[#F5E6C8]/50 text-xs mt-0.5">{item.sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -785,6 +788,12 @@ export default function Home() {
               </div>
             </Accordion>
           </div>
+          <div className="mt-8 max-w-2xl mx-auto art-deco-frame p-6 bg-[#1A2332]/40 rounded text-center fade-in-section">
+            <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed">
+              예약 후 <span className="text-[#C9A96E] font-medium">곡리스트 외의 곡</span>도 신청주시면
+              <span className="text-[#C9A96E] font-medium"> 악보가 있는 연주곡이면 연주 가능</span>합니다.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -975,62 +984,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ 16. 다양한 곡 안내 ============ */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 text-center fade-in-section">
-          <div className="art-deco-frame p-8 md:p-12 bg-[#1A2332]/40 rounded-lg">
-            <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mx-auto mb-5">
-              <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
-            </div>
-            <h3 className="font-['Playfair_Display'] text-xl md:text-2xl font-bold text-white mb-4">다양한 곡 안내</h3>
-            <p className="font-sans text-[#F5E6C8]/60 text-sm leading-relaxed mb-4">
-              예약 후 <span className="text-[#C9A96E] font-medium">곡리스트 외에 있는 곡</span>도 신청주시면<br />
-              <span className="text-[#C9A96E] font-medium">악보가 있는 연주곡이면 연주가능</span>합니다.
-            </p>
-            <div className="gold-line w-12 mx-auto my-5" />
-            <p className="font-['Cormorant_Garamond'] text-[#F5E6C8]/50 text-sm italic">
-              <span className="block">고객님의 특별한 순간을</span>
-              <span className="block">더욱 빛내드리기 위해</span>
-              <span className="block">다양한 곡으로 함께하겠습니다.</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ 17. 이중 체킹 ============ */}
-      <section className="py-20 md:py-28 bg-[#1A2332]/30">
-        <div className="max-w-5xl mx-auto px-4 fade-in-section">
-          <div className="text-center mb-14">
-            <div className="w-16 h-16 rounded-full bg-[#C9A96E]/10 border border-[#C9A96E]/30 flex items-center justify-center mx-auto mb-5">
-              <svg className="w-8 h-8 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-            </div>
-            <h2 className="font-['Playfair_Display'] text-2xl md:text-3xl font-bold text-white mb-3">예식 당일, <span className="text-[#C9A96E]">가장 걱정되는 부분</span></h2>
-            <p className="font-sans text-[#F5E6C8]/50 text-sm">혹시 모를 변수나 당일 진행에 대한 불안감</p>
-            <div className="gold-line w-16 mx-auto mt-6 mb-3" />
-            <p className="font-['Playfair_Display'] text-xl text-white font-semibold mt-6">이너스뮤직은 <span className="text-[#7ECEC1]">시스템</span>으로 대비합니다.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 stagger-children">
-            {[
-              { title: '전속 계약 진행', sub: 'No-show 걱정 없음', icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg> },
-              { title: '이중 체크', sub: '예식 2시간 전 / 1시간 전', icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
-              { title: '예비 연주자 대기', sub: '만일의 상황 대비', icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg> },
-            ].map((item) => (
-              <div key={item.title} className="art-deco-frame p-6 bg-[#1A2332]/60 rounded text-center">
-                <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mx-auto mb-4">{item.icon}</div>
-                <h4 className="font-sans text-white text-sm font-medium mb-2">{item.title}</h4>
-                <p className="font-sans text-[#F5E6C8]/50 text-xs">{item.sub}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <p className="font-['Cormorant_Garamond'] text-[#F5E6C8]/50 text-sm italic leading-relaxed">
-              "마지막까지 안정적으로 완성되는<br className="sm:hidden" />
-              예식을 직접 경험하실 수 있습니다."
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* ============ 18. 퀵 메뉴 ============ */}
       <section className="py-16 md:py-20" id="contact">
         <div className="max-w-4xl mx-auto px-4 fade-in-section">
@@ -1146,18 +1099,12 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ============ 추가 옵션 서비스 ============ */}
-      <section className="py-20 md:py-28 bg-[#1A2332]/30" id="extra-services">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="font-['Cormorant_Garamond'] text-[#C9A96E] text-sm tracking-[0.3em] uppercase mb-3">More Services</p>
-            <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-white mb-4">추가 옵션 서비스</h2>
-            <p className="font-sans text-[#F5E6C8]/50 text-sm mt-3">이너스뮤직의 다양한 웨딩 서비스를 확인해보세요.</p>
-            <div className="gold-line w-16 mx-auto mt-6" />
-          </div>
+          <div className="mt-6 art-deco-frame p-8 bg-[#1A2332]/60 rounded" id="extra-services">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="font-['Playfair_Display'] text-2xl font-bold text-[#C9A96E]">03</span>
+              <h3 className="font-sans text-white text-base font-medium">재즈 예약 시 함께 이용하는 서비스</h3>
+            </div>
+            <p className="font-sans text-[#F5E6C8]/50 text-sm mb-6">사회 · 클래식 · 뮤지컬웨딩 · 축가 · 모바일청첩장까지 한 번에 준비하실 수 있습니다.</p>
           <div className="text-center mb-8">
             <button
               onClick={() => setExtraServicesOpen(!extraServicesOpen)}
@@ -1210,6 +1157,7 @@ export default function Home() {
               ))}
             </div>
           )}
+          </div>
         </div>
       </section>
 
