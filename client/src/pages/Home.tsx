@@ -996,7 +996,7 @@ export default function Home() {
             {[
               { label: '재즈 영상보기', desc: '실제 예식 재즈 연주 영상', url: 'https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=24' },
               { label: '외국인밴드 영상', desc: '외국인 연주자 구성 영상', url: 'https://blog.naver.com/PostThumbnailList.nhn?blogId=inusmusics&from=postList&categoryNo=67' },
-              { label: '이너스 예약현황', desc: '실시간 예약 가능 일정 확인', url: 'http://inusmusics.dothome.co.kr/xe/board_nOmW18/' },
+              { label: '이너스 예약현황', desc: '실시간 예약 가능 일정 확인', url: 'https://www.inusmc.co.kr/weekend-performance' },
               { label: '카톡 상담하기', desc: '가장 빠른 상담 · 견적 문의', url: 'https://pf.kakao.com/_wxovaM/chat' },
             ].map((m) => (
               <a key={m.label} href={m.url} target="_blank" rel="noopener" className="art-deco-frame flex items-center gap-4 px-6 py-6 bg-[#1A2332]/50 rounded gold-glow transition-all duration-500 hover:bg-[#1A2332]/80 group">
