@@ -446,7 +446,7 @@ export default function Home() {
             {[
               { num: '2015', label: '설립연도' },
               { num: '10년+', label: '웨딩 진행 경험' },
-              { num: '2,000건+', label: '본식 후기' },
+              { num: '2,500건+', label: '본식 후기' },
               { num: '40,000쌍+', label: '진행 실적' },
             ].map((item) => (
               <div key={item.label} className="art-deco-frame p-6 text-center bg-[#1A2332]/50 rounded">
