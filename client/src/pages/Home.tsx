@@ -408,8 +408,8 @@ export default function Home() {
           <div className="gold-line w-24 mx-auto mb-8" />
           <p className="font-['Cormorant_Garamond'] text-[#E8D5A8] text-lg md:text-xl tracking-[0.3em] mb-4 uppercase">Premium Jazz Wedding</p>
           <h1 className="font-['Playfair_Display'] text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6), 0 4px 20px rgba(0,0,0,0.4)' }}>
-            예식에 <span className="text-[#C9A96E]">리듬</span>을,<br />
-            순간에 <span className="text-[#C9A96E]">감성</span>을
+            <span className="text-[#C9A96E]">재즈</span>의 리듬,<br />
+            예식의 감성으로
           </h1>
           <p className="font-sans text-[#F5E6C8]/70 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light">
             식전연주부터 행진까지,<br className="sm:hidden" />
