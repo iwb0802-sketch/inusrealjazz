@@ -28,11 +28,14 @@ const REVIEWS = [
 
 // 서비스 드롭다운 항목
 const SERVICE_ITEMS = [
+  { label: '메인홈페이지', url: 'https://www.inusmusic.com/' },
   { label: '결혼식사회', url: 'https://inusmc.co.kr' },
   { label: '클래식연주', url: 'https://www.inusclassic.kr/' },
   { label: '뮤지컬웨딩', url: 'https://inusmw.kr/' },
   { label: '축가', url: 'https://inusmusic.kr/' },
   { label: '모바일청첩장', url: 'https://inuscard.com' },
+  { label: '음원편집', url: 'https://www.inusmusic.com/audio', badge: 'NEW' },
+  { label: '식전영상제작', url: 'https://prewedding-video-renderer-production.up.railway.app/editor', badge: 'NEW' },
   { label: '완성패키지', url: 'https://blog.naver.com/inusmusics/220652965646' },
 ];
 
@@ -303,6 +306,9 @@ export default function Home() {
                     >
                       <span className="w-1 h-1 rounded-full bg-[#C9A96E]/50 flex-shrink-0" />
                       {item.label}
+                      {item.badge && (
+                        <span className="ml-auto text-[9px] font-bold text-[#0A1628] bg-[#7ECEC1] px-1.5 py-0.5 rounded-full tracking-wide">{item.badge}</span>
+                      )}
                     </a>
                   ))}
                 </div>
@@ -381,10 +387,13 @@ export default function Home() {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-['Noto_Serif_KR'] text-[#F5E6C8]/50 hover:text-[#C9A96E] text-xl md:text-2xl font-medium tracking-widest transition-colors duration-300 py-1.5"
+                      className="flex items-center gap-2 font-['Noto_Serif_KR'] text-[#F5E6C8]/50 hover:text-[#C9A96E] text-xl md:text-2xl font-medium tracking-widest transition-colors duration-300 py-1.5"
                       onClick={() => setMenuOpen(false)}
                     >
                       {item.label}
+                      {item.badge && (
+                        <span className="text-[10px] font-bold text-[#0A1628] bg-[#7ECEC1] px-1.5 py-0.5 rounded-full tracking-wide">{item.badge}</span>
+                      )}
                     </a>
                   ))}
                 </div>
@@ -1116,6 +1125,11 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
               {[
                 {
+                  label: '메인홈페이지',
+                  url: 'https://www.inusmusic.com/',
+                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                },
+                {
                   label: '결혼식사회',
                   url: 'https://inusmc.co.kr',
                   icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
@@ -1141,12 +1155,27 @@ export default function Home() {
                   icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                 },
                 {
+                  label: '음원편집',
+                  url: 'https://www.inusmusic.com/audio',
+                  badge: 'NEW',
+                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z" /></svg>
+                },
+                {
+                  label: '식전영상제작',
+                  url: 'https://prewedding-video-renderer-production.up.railway.app/editor',
+                  badge: 'NEW',
+                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                },
+                {
                   label: '완성 패키지',
                   url: 'https://blog.naver.com/inusmusics/220652965646',
                   icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
                 },
               ].map((s) => (
-                <a key={s.label} href={s.url} target="_blank" rel="noopener" className="art-deco-frame p-6 bg-[#1A2332]/60 rounded text-center gold-glow transition-all duration-500 hover:bg-[#1A2332]/80 group">
+                <a key={s.label} href={s.url} target="_blank" rel="noopener" className="relative art-deco-frame p-6 bg-[#1A2332]/60 rounded text-center gold-glow transition-all duration-500 hover:bg-[#1A2332]/80 group">
+                  {s.badge && (
+                    <span className="absolute top-2 right-2 text-[9px] font-bold text-[#0A1628] bg-[#7ECEC1] px-1.5 py-0.5 rounded-full tracking-wide">{s.badge}</span>
+                  )}
                   <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A96E]/20 transition-all duration-300">
                     {s.icon}
                   </div>
