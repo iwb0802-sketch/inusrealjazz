@@ -345,7 +345,8 @@ export default function Home() {
           <span className="absolute w-8 h-[2px] bg-[#C9A96E] rotate-45 transition-all duration-300 group-hover:bg-[#F5E6C8] group-hover:w-9" />
           <span className="absolute w-8 h-[2px] bg-[#C9A96E] -rotate-45 transition-all duration-300 group-hover:bg-[#F5E6C8] group-hover:w-9" />
         </button>
-        <div className="relative z-10 h-full flex flex-col items-center justify-center">
+        <div className="relative z-10 h-full overflow-y-auto">
+        <div className="min-h-full flex flex-col items-center justify-center py-20 px-4">
           <nav className="flex flex-col items-center gap-1">
             {[
               { label: '메인', href: '#hero' },
@@ -357,7 +358,7 @@ export default function Home() {
               <a
                 key={item.label}
                 href={item.href}
-                className="menu-item font-['Noto_Serif_KR'] text-4xl md:text-6xl font-medium text-[#F5E6C8]/30 hover:text-[#C9A96E] transition-all duration-500 py-3 tracking-wider"
+                className="menu-item font-['Noto_Serif_KR'] text-3xl md:text-6xl font-medium text-[#F5E6C8]/30 hover:text-[#C9A96E] transition-all duration-500 py-2 tracking-wider"
                 data-text={item.label}
                 onClick={(e) => { e.preventDefault(); scrollTo(item.href); }}
               >
@@ -368,7 +369,7 @@ export default function Home() {
             {/* 서비스 드롭다운 */}
             <div className="flex flex-col items-center">
               <button
-                className="menu-item font-['Noto_Serif_KR'] text-4xl md:text-6xl font-medium text-[#F5E6C8]/30 hover:text-[#C9A96E] transition-all duration-500 py-3 tracking-wider flex items-center gap-3"
+                className="menu-item font-['Noto_Serif_KR'] text-3xl md:text-6xl font-medium text-[#F5E6C8]/30 hover:text-[#C9A96E] transition-all duration-500 py-2 tracking-wider flex items-center gap-3"
                 onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
               >
                 <span className="menu-item-text">서비스</span>
@@ -380,14 +381,14 @@ export default function Home() {
                 </svg>
               </button>
               {mobileServiceOpen && (
-                <div className="flex flex-col items-center gap-1 pb-2">
+                <div className="flex flex-col items-center gap-0.5 pb-2">
                   {SERVICE_ITEMS.map((item) => (
                     <a
                       key={item.label}
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 font-['Noto_Serif_KR'] text-[#F5E6C8]/50 hover:text-[#C9A96E] text-xl md:text-2xl font-medium tracking-widest transition-colors duration-300 py-1.5"
+                      className="flex items-center gap-2 font-['Noto_Serif_KR'] text-[#F5E6C8]/50 hover:text-[#C9A96E] text-lg md:text-2xl font-medium tracking-widest transition-colors duration-300 py-1"
                       onClick={() => setMenuOpen(false)}
                     >
                       {item.label}
@@ -400,10 +401,11 @@ export default function Home() {
               )}
             </div>
           </nav>
-          <div className="gold-line w-20 mt-10 mb-6" />
+          <div className="gold-line w-20 mt-8 mb-6" />
           <a href="https://pf.kakao.com/_wxovaM/chat" target="_blank" rel="noopener" className="font-sans text-[#C9A96E]/60 text-sm tracking-widest hover:text-[#C9A96E] transition-colors duration-300">
             KAKAO TALK CONSULTATION
           </a>
+        </div>
         </div>
       </div>
 

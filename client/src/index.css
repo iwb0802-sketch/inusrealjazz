@@ -320,6 +320,9 @@ button:active, a:active {
 #menu-overlay.opacity-100 nav a:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
 #menu-overlay.opacity-100 nav a:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
 #menu-overlay.opacity-100 nav a:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+#menu-overlay.opacity-100 nav a:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+#menu-overlay.opacity-100 nav a:nth-child(8) { opacity: 1; transform: translateY(0); transition-delay: 0.45s; }
+#menu-overlay.opacity-100 nav a:nth-child(9) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
 
 @media (max-width: 768px) {
   .floating-cta {
