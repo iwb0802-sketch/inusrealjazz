@@ -847,11 +847,16 @@ export default function Home() {
       {/* ============ 12-13. 연주자 프로필 ============ */}
       <section className="py-20 md:py-28" id="profiles">
         <div className="max-w-6xl mx-auto px-4 fade-in-section">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <p className="font-['Cormorant_Garamond'] text-[#C9A96E] text-sm tracking-[0.3em] uppercase mb-3">Our Musicians</p>
             <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-white mb-4">재즈 연주자 프로필</h2>
             <div className="gold-line w-16 mx-auto mt-6" />
           </div>
+          <div className="flex flex-col items-center justify-center gap-1 mb-14">
+            <p className="font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#C9A96E]">100<span className="text-2xl md:text-3xl">명+</span></p>
+            <p className="font-sans text-[#F5E6C8]/60 text-sm tracking-wide">검증된 재즈 연주자 풀 보유 · 예식에 맞는 최적의 편성으로 배정</p>
+          </div>
+          <p className="text-center font-sans text-[#F5E6C8]/40 text-xs tracking-[0.2em] uppercase mb-4">Representative Members</p>
           <div className="art-deco-frame p-8 md:p-10 bg-[#1A2332]/50 rounded-lg mb-10">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-shrink-0 w-20 h-20 rounded-full border-2 border-[#C9A96E]/40 overflow-hidden">
@@ -896,6 +901,10 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-6 art-deco-frame p-6 bg-[#1A2332]/30 rounded flex flex-col md:flex-row items-center justify-center gap-3 text-center">
+            <p className="font-['Playfair_Display'] text-2xl font-bold text-[#C9A96E]">+96<span className="font-sans text-sm font-normal text-[#F5E6C8]/50 ml-1">명</span></p>
+            <p className="font-sans text-[#F5E6C8]/50 text-sm">피아노 · 베이스 · 드럼 · 보컬 등 검증된 연주자들이 예식 스타일에 맞춰 함께합니다</p>
           </div>
         </div>
       </section>
