@@ -9,6 +9,8 @@ import { useEffect, useRef, useState } from "react";
 import InusCardPopup from "@/components/InusCardPopup";
 import FloatingButtons from "@/components/FloatingButtons";
 import QuickNav from "@/components/QuickNav";
+import HeroProof from "@/components/brand/HeroProof";
+import ServiceCrossNav from "@/components/brand/ServiceCrossNav";
 
 // ===== Asset URLs =====
 const HERO_IMG = '/images/jazz/hero-jazz.webp';
@@ -36,7 +38,7 @@ const SERVICE_ITEMS = [
   { label: '모바일청첩장', url: 'https://inuscard.com' },
   { label: '음원편집', url: 'https://www.inusmusic.com/audio', badge: 'NEW' },
   { label: '식전영상제작', url: 'https://prewedding-video-renderer-production.up.railway.app/editor', badge: 'NEW' },
-  { label: '완성패키지', url: 'https://blog.naver.com/inusmusics/220652965646' },
+  { label: '완성패키지', url: 'https://www.inusmusic.com/package' },
 ];
 
 // ===== Hooks =====
@@ -151,8 +153,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const [floatingVisible, setFloatingVisible] = useState(false);
-  const [extraServicesOpen, setExtraServicesOpen] = useState(true);
-  const [videoFabOpen, setVideoFabOpen] = useState(false);
+    const [videoFabOpen, setVideoFabOpen] = useState(false);
   const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
   const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -238,7 +239,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A1628] text-[#F5E6C8]">
+    <div className="svc-page min-h-screen bg-[#0A1628] text-[#F5E6C8]">
 
       {/* 팝업 */}
       <InusCardPopup />
@@ -414,6 +415,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Jazz Wedding" className="w-full h-full object-cover object-[center_30%] sm:object-center" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/70 via-[#0A1628]/50 to-[#0A1628]" />
+          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 65% 50% at 50% 52%, rgba(10,22,40,0.62) 0%, rgba(10,22,40,0.3) 62%, transparent 100%)" }} />
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <div className="gold-line w-24 mx-auto mb-8" />
@@ -422,7 +424,7 @@ export default function Home() {
             <span className="text-[#C9A96E]">재즈</span>의 리듬,<br />
             예식의 감성으로
           </h1>
-          <p className="font-sans text-[#F5E6C8]/70 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          <p className="font-sans text-[#F5E6C8]/85 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}>
             식전연주부터 행진까지,<br className="sm:hidden" />
             자연스럽게 흐르는 음악으로<br />
             하객의 몰입도를 끌어올리는<br className="sm:hidden" />
@@ -436,7 +438,8 @@ export default function Home() {
               자세한 내용보기
             </a>
           </div>
-          <div className="gold-line w-24 mx-auto mt-12" />
+          <HeroProof pricingHref="#pricing" className="mt-8" />
+          <div className="gold-line w-24 mx-auto mt-8" />
         </div>
         <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce cursor-pointer" onClick={(e) => { e.preventDefault(); scrollTo('#about'); }}>
           <span className="text-[#C9A96E]/50 text-xs font-sans tracking-widest">SCROLL</span>
@@ -460,7 +463,7 @@ export default function Home() {
               { num: '40,000쌍+', label: '진행 실적' },
             ].map((item) => (
               <div key={item.label} className="art-deco-frame p-6 text-center bg-[#1A2332]/50 rounded">
-                <p className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-[#C9A96E] mb-2">{item.num}</p>
+                <p className="font-['Playfair_Display'] text-[1.6rem] md:text-4xl font-bold text-[#C9A96E] mb-2 whitespace-nowrap">{item.num}</p>
                 <p className="font-sans text-[#F5E6C8]/60 text-sm">{item.label}</p>
               </div>
             ))}
@@ -593,7 +596,7 @@ export default function Home() {
                 하나로 설계될 때<br />예식의 흐름과 완성도가 달라집니다.
               </p>
               <p className="font-sans text-[#C9A96E] text-sm mt-4 mb-8">가장 만족도가 높은 구성으로 추천드립니다</p>
-              <a href="https://blog.naver.com/inusmusics/220652965646" target="_blank" rel="noopener" className="inline-block bg-[#C9A96E] hover:bg-[#E8D5A8] text-[#0A1628] font-sans font-medium px-8 py-3 rounded transition-all duration-300 text-sm">
+              <a href="https://www.inusmusic.com/package" target="_blank" rel="noopener" className="inline-block bg-[#C9A96E] hover:bg-[#E8D5A8] text-[#0A1628] font-sans font-medium px-8 py-3 rounded transition-all duration-300 text-sm">
                 완성형 패키지 자세히 보기
               </a>
             </div>
@@ -930,7 +933,7 @@ export default function Home() {
               { name: 'Quintet (5중주)', price: '420,000' },
             ].map((p) => (
               <div key={p.name} className="price-highlight p-5 rounded text-center gold-glow transition-all duration-500">
-                <p className="font-['Playfair_Display'] text-sm text-[#C9A96E] font-semibold mb-2">{p.name}</p>
+                <p className="font-['Playfair_Display'] text-sm text-[#C9A96E] font-semibold mb-2 whitespace-nowrap">{p.name.split(' (')[0]}{p.name.includes(' (') && <span className="block font-sans text-xs font-normal text-[#F5E6C8]/55 mt-0.5">{p.name.split(' (')[1].replace(')', '')}</span>}</p>
                 <p className="font-['Playfair_Display'] text-xl md:text-2xl font-bold text-white">{p.price}<span className="text-sm text-[#F5E6C8]/60">원</span></p>
               </div>
             ))}
@@ -943,7 +946,7 @@ export default function Home() {
                 { name: 'Trio (3중주)', price: '260,000' },
               ].map((p) => (
                 <div key={p.name} className="price-highlight p-4 rounded text-center">
-                  <p className="font-['Playfair_Display'] text-xs text-[#C9A96E] font-semibold mb-1">{p.name}</p>
+                  <p className="font-['Playfair_Display'] text-xs text-[#C9A96E] font-semibold mb-1 whitespace-nowrap">{p.name.split(' (')[0]}{p.name.includes(' (') && <span className="block font-sans text-[10px] font-normal text-[#F5E6C8]/55 mt-0.5">{p.name.split(' (')[1].replace(')', '')}</span>}</p>
                   <p className="font-['Playfair_Display'] text-lg font-bold text-white">{p.price}<span className="text-[10px] text-[#F5E6C8]/60">원</span></p>
                 </div>
               ))}
@@ -954,7 +957,7 @@ export default function Home() {
                 { name: 'Quintet (5중주)', price: '420,000' },
               ].map((p) => (
                 <div key={p.name} className="price-highlight p-4 rounded text-center">
-                  <p className="font-['Playfair_Display'] text-xs text-[#C9A96E] font-semibold mb-1">{p.name}</p>
+                  <p className="font-['Playfair_Display'] text-xs text-[#C9A96E] font-semibold mb-1 whitespace-nowrap">{p.name.split(' (')[0]}{p.name.includes(' (') && <span className="block font-sans text-[10px] font-normal text-[#F5E6C8]/55 mt-0.5">{p.name.split(' (')[1].replace(')', '')}</span>}</p>
                   <p className="font-['Playfair_Display'] text-lg font-bold text-white">{p.price}<span className="text-[10px] text-[#F5E6C8]/60">원</span></p>
                 </div>
               ))}
@@ -1101,7 +1104,7 @@ export default function Home() {
                 <h3 className="font-sans text-white text-base font-medium">숨고 리뷰 이벤트 참여 혜택</h3>
               </div>
               <ul className="space-y-2 font-sans text-[#F5E6C8]/60 text-sm">
-                <li className="flex items-start gap-2"><span className="text-[#7ECEC1] mt-0.5">✓</span><span>숨고 리뷰 작성 시 <span className="text-[#C9A96E] font-medium">최대 2만원 할인</span> 혜택</span></li>
+                <li className="flex items-start gap-2"><span className="text-[#7ECEC1] mt-0.5">✓</span><span>숨고 리뷰 작성 시 <span className="text-[#C9A96E] font-medium">2만원 할인</span> 혜택</span></li>
                 <li className="flex items-start gap-2"><span className="text-[#7ECEC1] mt-0.5">✓</span><span>결혼 준비에 꼭 필요한 <span className="text-[#C9A96E] font-medium">웨딩 준비 체크리스트</span> 제공</span></li>
               </ul>
             </div>
@@ -1111,93 +1114,15 @@ export default function Home() {
                 <h3 className="font-sans text-white text-base font-medium">블로그 후기 참여 혜택</h3>
               </div>
               <p className="font-sans text-[#F5E6C8]/60 text-sm">블로그 후기 작성 시 <span className="text-[#C9A96E] font-medium">추가 혜택</span>을 제공합니다.</p>
-              <p className="font-sans text-[#C9A96E] text-sm mt-3 font-medium">추가 혜택 제공</p>
               <a href="https://blog.naver.com/inusmusics/220652958346" target="_blank" rel="noopener" className="inline-block mt-4 border border-[#C9A96E]/50 hover:border-[#C9A96E] text-[#C9A96E] font-sans text-xs px-5 py-2 rounded transition-all duration-300">
                 자세히 알아보기
               </a>
             </div>
           </div>
-          <div className="mt-6 art-deco-frame p-8 bg-[#1A2332]/60 rounded" id="extra-services">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="font-['Playfair_Display'] text-2xl font-bold text-[#C9A96E]">03</span>
-              <h3 className="font-sans text-white text-base font-medium">재즈 예약 시 함께 이용하는 서비스</h3>
-            </div>
-            <p className="font-sans text-[#F5E6C8]/50 text-sm mb-6">사회 · 클래식 · 뮤지컬웨딩 · 축가 · 모바일청첩장까지 한 번에 준비하실 수 있습니다.</p>
-          <div className="text-center mb-8">
-            <button
-              onClick={() => setExtraServicesOpen(!extraServicesOpen)}
-              className="inline-flex items-center gap-2 border border-[#C9A96E]/50 hover:border-[#C9A96E] text-[#C9A96E] font-sans font-medium px-6 py-3 rounded transition-all duration-300 text-sm"
-            >
-              <span>{extraServicesOpen ? '접기' : '서비스 보기'}</span>
-              <svg className={`w-4 h-4 transition-transform duration-300 ${extraServicesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </button>
-          </div>
-          {extraServicesOpen && (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-              {[
-                {
-                  label: '메인홈페이지',
-                  url: 'https://www.inusmusic.com/',
-                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-                },
-                {
-                  label: '결혼식사회',
-                  url: 'https://inusmc.co.kr',
-                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                },
-                {
-                  label: '클래식연주',
-                  url: 'https://www.inusclassic.kr/',
-                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
-                },
-                {
-                  label: '뮤지컬웨딩',
-                  url: 'https://inusmw.kr/',
-                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                },
-                {
-                  label: '축가',
-                  url: 'https://inusmusic.kr/',
-                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
-                },
-                {
-                  label: '모바일청첩장',
-                  url: 'https://inuscard.com',
-                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
-                },
-                {
-                  label: '음원편집',
-                  url: 'https://www.inusmusic.com/audio',
-                  badge: 'NEW',
-                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z" /></svg>
-                },
-                {
-                  label: '식전영상제작',
-                  url: 'https://prewedding-video-renderer-production.up.railway.app/editor',
-                  badge: 'NEW',
-                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                },
-                {
-                  label: '완성 패키지',
-                  url: 'https://blog.naver.com/inusmusics/220652965646',
-                  icon: <svg className="w-7 h-7 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
-                },
-              ].map((s) => (
-                <a key={s.label} href={s.url} target="_blank" rel="noopener" className="relative art-deco-frame p-6 bg-[#1A2332]/60 rounded text-center gold-glow transition-all duration-500 hover:bg-[#1A2332]/80 group">
-                  {s.badge && (
-                    <span className="absolute top-2 right-2 text-[9px] font-bold text-[#0A1628] bg-[#7ECEC1] px-1.5 py-0.5 rounded-full tracking-wide">{s.badge}</span>
-                  )}
-                  <div className="w-14 h-14 rounded-full bg-[#C9A96E]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A96E]/20 transition-all duration-300">
-                    {s.icon}
-                  </div>
-                  <p className="font-sans text-[#F5E6C8]/80 text-sm font-medium group-hover:text-[#C9A96E] transition-colors duration-300">{s.label}</p>
-                </a>
-              ))}
-            </div>
-          )}
-          </div>
         </div>
       </section>
+
+      <ServiceCrossNav current="jazz" background="#0A1628" />
 
       {/* ============ FOOTER ============ */}
       <footer className="py-12 border-t border-[#C9A96E]/10">
@@ -1210,7 +1135,7 @@ export default function Home() {
             <p>사무실 주소: 서울 광진구 자양로 165 4층</p>
             <p>TEL: <a href="tel:02-423-2772" className="hover:text-[#C9A96E] transition-colors duration-300">02-423-2772</a></p>
           </div>
-          <p className="font-sans text-[#F5E6C8]/30 text-xs">© 2015-2025 INUSMUSIC. All rights reserved.</p>
+          <p className="font-sans text-[#F5E6C8]/30 text-xs">© 2015-2026 INUSMUSIC. All rights reserved.</p>
         </div>
       </footer>
 
